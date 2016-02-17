@@ -5,5 +5,7 @@ class Answer < ActiveRecord::Base
   has_many :votes, as: :voteable
   has_many :comments, as: :commentable
 
+  validates :body, presence: true
+
   include Pointable
 end
