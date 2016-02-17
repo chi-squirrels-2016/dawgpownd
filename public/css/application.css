@@ -31,9 +31,15 @@ header {
   padding-right: 30px;
 }
 
+.homepage {
+  width: 75%;
+  margin: 0 auto;
+}
+
 #menu {
   list-style-type: none;
   margin-bottom: 100px;
+  margin-top: 30px;
 }
 
 #menu li {
@@ -52,9 +58,33 @@ header {
   padding-right: 20px;
 }
 
-.homepage {
-  width: 75%;
-  margin: 0 auto;
+
+#question-tabs {
+  border-bottom: 2px solig gray;
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+#question-tabs li {
+  display: inline;
+  padding-left: 10px;
+}
+
+.questions-header {
+  font-family: Brown, serif;
+  font-size: 26px;
+  color: #444;
+}
+
+.sort {
+  font-size: 12px;
+  float: right;
+}
+
+.sort a {
+  color: #444;
+  text-decoration: none;
+
 }
 
 .posts {
@@ -77,7 +107,7 @@ header {
 
 .post-link {
   color: #0083cb;
-  font-size: 18px;
+  font-size: 20px;
   font-family: Arial, sans-serif;
   text-decoration: none;
 }
@@ -98,4 +128,5 @@ h4 {
 
 .date {
   float:right;
+  font-size: 12px;
 }
