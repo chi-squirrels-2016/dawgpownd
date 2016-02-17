@@ -1,0 +1,16 @@
+<h2>Leave a comment!</h2>
+<h4>Please be respectful and refrain from cyberbullying.</h4>
+<br>
+
+<%= erb :'sessions/_errors' %>
+
+<% if @question %>
+  <div>
+    <form id="new-comment" action='/questions/<%=@question.id%>/comments/new' method='post' >
+    <%=erb :'comments/_end_of_comment' %>
+</div>
+<% elsif @answer %>
+  <div>
+    <form id="new-comment" action='/answers/<%=@answer.id%>/comments/new' method='post' >
+    <%=erb :'comments/_end_of_comment' %>
+<% end %>

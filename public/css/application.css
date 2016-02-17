@@ -1,0 +1,132 @@
+header {
+  background-color: #444;
+
+  width: 100%;
+}
+
+#nav-bar {
+  list-style-type: none;
+  margin-left: 0px;
+  padding-top: 20px;
+  padding-bottom: 20px
+}
+
+#nav-bar li {
+  display: inline;
+}
+
+#nav-bar li a {
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.sitename {
+  color: white;
+  font-size: 24px
+}
+
+.rightside {
+  float:right;
+  padding-right: 30px;
+}
+
+.homepage {
+  width: 75%;
+  margin: 0 auto;
+}
+
+#menu {
+  list-style-type: none;
+  margin-bottom: 100px;
+  margin-top: 30px;
+}
+
+#menu li {
+  display: inline;
+}
+
+#menu li a {
+  text-decoration: none;
+  color: white;
+  background-color: #9fbbd6;
+  padding: 5px;
+}
+
+.menu-button {
+  float: right;
+  padding-right: 20px;
+}
+
+
+#question-tabs {
+  border-bottom: 2px solig gray;
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+#question-tabs li {
+  display: inline;
+  padding-left: 10px;
+}
+
+.questions-header {
+  font-family: Brown, serif;
+  font-size: 26px;
+  color: #444;
+}
+
+.sort {
+  font-size: 12px;
+  float: right;
+}
+
+.sort a {
+  color: #444;
+  text-decoration: none;
+
+}
+
+.posts {
+  width: 100%;
+}
+.post-row {
+  border-bottom: 2px solid gray;
+}
+
+.post-stats {
+  padding: 20px;
+  text-align: center;
+  width: 10%;
+}
+
+.post-info {
+  padding-left: 20px;
+  line-height: 2.0;
+}
+
+.post-link {
+  color: #0083cb;
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+}
+
+h4 {
+  font-size: 24px
+}
+
+.tags {
+  margin: 5px;
+  background-color: #9fbbd6;
+}
+
+.author {
+  margin: 5px;
+  background-color: #9fbbd6;
+}
+
+.date {
+  float:right;
+  font-size: 12px;
+}

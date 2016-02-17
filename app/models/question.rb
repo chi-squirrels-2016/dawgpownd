@@ -8,16 +8,30 @@ class Question < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
+  validates :body, presence: true
+  validates :title, presence: true
+  validates :user_id, presence: true
+
+
   include Pointable
+  def vote_count
+    votes.length
+  end
+
+  def answer_count
+    answers.length
+  end
 
   def author
-    user = User.find(self.user_id)
     user.username
+  end
+
+  def date
+    created_at.strftime("%m/%d/%Y")
   end
 
   def answers_by_vote
     answers = self.answers
     answers.sort! { |a,b| a.votes.length <=> b.votes.length }
   end
-
 end
