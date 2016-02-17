@@ -15,7 +15,7 @@
 </head>
 <body>
   <header>
-    <ul class="nav-bar">
+    <ul id="nav-bar">
       <li class="sitename">Computer:WTF?</li>
     <% if current_user %>
       <li class="rightside"><a href="/users/<%=current_user.id%>"><%=current_user.username%></a></li>
@@ -27,6 +27,12 @@
       <li class="rightside"><a href="/">home</a></li>
     <% end %>
   </header>
+  <ul id="menu" class="homepage">
+    <li class="menu-button"><a href="/questions">Questions</a></li>
+    <li class="menu-button"><a href="/tags">Tags</a></li>
+    <li class="menu-button"><a href="/users">Users</a></li>
+    <li class="menu-button"><a href="/questions/new">Ask Question</a></li>
+  </ul>
   <%= yield %>
 </body>
 </html>
