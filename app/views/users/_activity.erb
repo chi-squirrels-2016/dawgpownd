@@ -1,0 +1,13 @@
+<% puts activity.class.name %>
+<% case activity.class.name %>
+<% when "Question" %>
+  <span>You asked <a href="/questions/<%= activity.id%>"><%= activity.title %></a> on <%= activity.created_at %><span>
+<% when "Answer" %>
+  <span>You answered "<%= activity.body %>" on <a href="/questions/<%= activity.question.id %>"><%= activity.question.title %></a> on <%= activity.created_at %><span>
+<% when "Comment" %>
+  <span>You commented "<%= activity.body %>" on <a href="/questions/<%= activity.source_question.id %>"><%= activity.source_question.title %></a> on <%= activity.created_at %><span>
+<% when "Vote" %>
+  <span>You voted on a <%= activity.votable.class.name %> on <a href="/questions/<%= activity.source_question.id %>"><%= activity.source_question.title %></a> on <%= activity.created_at %><span>
+<% else %>
+  <%= "Error." %>
+<% end %>
