@@ -1,0 +1,22 @@
+<div class="homepage">
+  <ul id="question-tabs">
+    <li class="questions-header">Questions</li>
+    <li class="sort"><a href="/questions/newest">newest</a></li>
+    <li class="sort"><a href="/questions/popular">views</a></li>
+    <li class="sort"><a href="/questions/votes">votes</a></li>
+    <li class="sort"><a href="/questions/answers">answers</a></li>
+  </ul>
+
+  <section class="posts-content">
+    <table class="posts">
+
+     <% @questions.each do |question| %>
+        <tr class="post-row">
+          <td class="post-stats"><%=question.vote_count%><br>votes</td>
+          <td class="post-stats"><%=question.answer_count%><br>answers</td>
+          <td class="post-stats"><%=question.view_count%><br>views</td>
+          <td class="post-info"><a class="post-link" href="/questions/<%=question.id%>"><%=question.title%></a><br><span class="tags">tag1</span><span class="author"><%=question.author%></span><span class="date">created <%=question.date%></td>
+        </tr>
+      <% end %>
+    </table>
+  </section>

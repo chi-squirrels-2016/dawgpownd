@@ -5,7 +5,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.string :title, null: false
       t.string :body, null: false
       t.integer :accepted_answer_id
-      t.integer :view_count
+      t.integer :view_count, default: 0
       t.timestamps null: false
     end
   end

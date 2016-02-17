@@ -14,4 +14,20 @@ class Question < ActiveRecord::Base
 
 
   include Pointable
+
+  def vote_count
+    votes.length
+  end
+
+  def answer_count
+    answers.length
+  end
+
+  def author
+    user.username
+  end
+
+  def date
+    created_at.strftime("%m/%d/%Y")
+  end
 end
