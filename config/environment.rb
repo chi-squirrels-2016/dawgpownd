@@ -26,14 +26,14 @@ APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
 APP_NAME = APP_ROOT.basename.to_s
 
-# configure do
-#   # See: http://www.sinatrarb.com/faq.html#sessions
-#   enable :sessions
-#   set :session_secret, ENV['SESSION_SECRET'] || 'this is a secret shhhhh'
+configure do
+  # See: http://www.sinatrarb.com/faq.html#sessions
+  enable :sessions
+  set :session_secret, ENV['SESSION_SECRET'] || 'this is a secret shhhhh'
 
-#   # Set the views to
-#   set :views, File.join(Sinatra::Application.root, "app", "views")
-# end
+  # Set the views to
+  set :views, File.join(Sinatra::Application.root, "app", "views")
+end
 
 # Set up the controllers and helpers
 Dir[APP_ROOT.join('app', 'controllers', '*.rb')].each { |file| require file }
