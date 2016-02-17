@@ -1,0 +1,5 @@
+<%= erb :'sessions/_errors' %>
+
+<form action="/login" method="post" id="login_table">
+  <%= erb :'sessions/_user_details', locals: { button_text: "Log in"} %>
+</form>

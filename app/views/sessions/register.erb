@@ -1,0 +1,6 @@
+<%= erb :'sessions/_errors' %>
+
+<form action="/register" method="post" id="register_table">
+  <input type="text" placeholder="Enter email" name="email">
+  <%= erb :'sessions/_user_details', locals: { button_text: "Register"} %>
+</form>
