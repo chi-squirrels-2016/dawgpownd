@@ -11,8 +11,8 @@ gem 'sinatra-contrib'
 gem 'thin'
 gem 'shotgun'
 
-gem 'activesupport'
-gem 'activerecord'
+gem 'activesupport', '~>4.2.0'
+gem 'activerecord', '~>4.2.0'
 
 gem 'rake'
 gem 'bcrypt'
