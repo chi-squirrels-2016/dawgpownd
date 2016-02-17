@@ -18,4 +18,8 @@
   <p>
     <span class='question_answers'><%= @a.body %></span>
   </p>
+  <p>
+    Posted by: <a href='/user/<%= @question.user_id %>'> <%= @question.author %></a><br>
+    On: <%= @question.created_at %>
+  </p>
 </article>

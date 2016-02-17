@@ -10,8 +10,14 @@ class Question < ActiveRecord::Base
 
   include Pointable
 
-  def accepted_answer
-    self.accepted_answer.body
+  def author
+    user = User.find(self.user_id)
+    user.username
+  end
+
+  def answers_by_vote
+    answers = self.answers
+    answers.sort! { |a,b| a.votes.length <=> b.votes.length }
   end
 
 end
