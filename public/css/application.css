@@ -1,0 +1,31 @@
+header {
+  background-color: #444;
+
+  width: 100%;
+}
+
+.nav-bar {
+  list-style-type: none;
+  padding-top: 20px;
+  padding-bottom: 20px
+}
+
+.nav-bar li {
+  display: inline;
+}
+
+.nav-bar li a {
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.sitename {
+  color: white;
+  font-size: 24px
+}
+
+.rightside {
+  float:right;
+  padding-right: 30px;
+}

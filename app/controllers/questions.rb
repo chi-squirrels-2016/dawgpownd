@@ -1,5 +1,5 @@
 get '/questions/?' do
-
+  erb :index
 end
 
 get '/questions/new' do
