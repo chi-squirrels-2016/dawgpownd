@@ -19,8 +19,8 @@ Question.create([
     },
 
   { user_id: 3,
-    title: "What is JavaScript?",
-    body: "Please tell me about this",
+    title: "This certificate has an invalid issuer Apple Push Services",
+    body: "I have created certificate to enable Push Services in my app, but every time I try to add certificate in my Keychain, after adding certificate it shows me following error:This certificate has an invalid issuer",
     },
 
   { user_id: 4,
