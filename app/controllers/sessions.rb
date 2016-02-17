@@ -1,18 +1,19 @@
-get '/sessions/login/?' do
+get '/login/?' do
   erb :'sessions/login'
 end
 
-get '/sessions/register/?' do
+get '/register/?' do
   erb :'sessions/register'
 end
 
-get '/sessions/logout/?' do
+get '/logout/?' do
+  ensure_access
   session[:user_id] = nil
   erb :'sessions/logout'
 end
 
-post '/sessions/login/?' do
-  user = User.authenticate(params[:email], params[:password])
+post '/login/?' do
+  user = User.authenticate(params[:username], params[:password])
   if user
     session[:user_id] = user.id
     redirect "/questions"
@@ -22,11 +23,8 @@ post '/sessions/login/?' do
   end
 end
 
-post '/sessions/register/?' do
-  user = User.new(first_name: params[:first_name],
-                  last_name: params[:last_name],
-                  email: params[:email]
-                  )
+post '/register/?' do
+  user = User.new(params)
   user.password = params[:password]
   if user.save
     session[:user_id] = user.id

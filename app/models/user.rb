@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :questions
 
 
-  validates :name, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   validate :password_length
 
@@ -21,8 +21,8 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
-  def self.authenticate(email, password)
-    @user = User.find_by_email(email)
+  def self.authenticate(username, password)
+    @user = User.find_by_username(username)
     if @user
       if @user.password == password
         @user
