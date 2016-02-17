@@ -20,3 +20,4 @@ post '/questions/new' do
 		erb :'/questions/new'
 	end
 end
+
