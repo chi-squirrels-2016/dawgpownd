@@ -25,7 +25,7 @@ end
 get '/questions/:id' do
   @question = Question.find(params[:id])
   @answers = @question.answers_by_vote
-  @a = @answers.find(2)
+  @accepted_answer = Answer.find_by(id: @question.accepted_answer_id)
   erb :'questions/show'
 end
 

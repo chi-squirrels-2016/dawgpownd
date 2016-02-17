@@ -1,25 +1,29 @@
-<article id="<%= @question.id %>">
-  <a href='/questions/<%= @question.id %>/vote' class="fa fa-sort-desc vote-button"></a>
-  <h2><a href='/questions/<%= @question.id %>'><%= @question.title %></a></h2>
-<div id="answer_595" class="answer">
-  <a href=''>vote up img</a>
-  <div class="score">0</div>
-  <a href=''>vote down img</a>
+<div class='question_container'>
+  <article id="<%= @question.id %>">
+    <a href='/questions/<%= @question.id %>/vote' class="fa fa-sort-desc vote-button"></a>
+    <h2><a href='/questions/<%= @question.id %>'><%= @question.title %></a></h2>
+  <div id="answer_595" class="answer">
+    <a href=''>vote up img</a>
+    <div class="score">0</div>
+    <a href=''>vote down img</a>
+  </div>
+    <p>
+      <span class='question_body'><%= @question.body %></span>
+    </p>
+    <p>
+      <span class='answer_count'><%= @answers.length %> Answer </span>
+    </p>
+     <p>
+        <a href='/comments/new'>add comment</a>
+    </p>
+    <p>
+      <% if @accepted_answer%>
+      <span class='question_answers'><%= @accepted_answer.body %></span>
+      <% end %>
+    </p>
+    <p>
+      Posted by: <a href='/user/<%= @question.user_id %>'> <%= @question.author %></a><br>
+      On: <%= @question.created_at %>
+    </p>
+  </article>
 </div>
-  <p>
-    <span class='question_body'><%= @question.body %></span>
-  </p>
-  <p>
-    <span class='answer_count'><%= @answers.length %> Answer </span>
-  </p>
-   <p>
-      <a href='/comments/new'>add comment</a>
-  </p>
-  <p>
-    <span class='question_answers'><%= @a.body %></span>
-  </p>
-  <p>
-    Posted by: <a href='/user/<%= @question.user_id %>'> <%= @question.author %></a><br>
-    On: <%= @question.created_at %>
-  </p>
-</article>
