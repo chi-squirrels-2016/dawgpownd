@@ -8,5 +8,10 @@ class Question < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
+  validates :body, presence: true
+  validates :title, presence: true
+  validates :user_id, presence: true
+
+
   include Pointable
 end
