@@ -7,7 +7,6 @@ get '/register/?' do
 end
 
 get '/logout/?' do
-  ensure_access
   session[:user_id] = nil
   erb :'sessions/logout'
 end
