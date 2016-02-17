@@ -1,0 +1,29 @@
+<h2>Leave a comment!</h2>
+<h4>Please be respectful and refrain from cyberbullying.</h4>
+<br>
+
+<% if @errors %>
+  <span>Something went wrong:</span>
+  <ul class="error-list pad-b-2">
+    <% @errors.each do |error| %>
+      <li class="error-item"><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if @question %>
+  <div>
+    <form id="new-comment" action='/questions/<%=@question.id%>/comments/new' method='post' >
+      <input type="text" placeholder="Enter your comment here..." name='body'><br>
+      <input type="submit" value="Submit Comment" class='button'>
+    </form>
+  </div>
+<% elsif @answer %>
+  <div>
+    <form id="new-comment" action='/answers/<%=@answer.id%>/comments/new' method='post' >
+      erb :
+      <input type="text" placeholder="Enter your comment here..." name='body'><br>
+      <input type="submit" value="Submit Comment" class='button'>
+    </form>
+  </div>
+<% end %>

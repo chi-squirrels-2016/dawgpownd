@@ -7,9 +7,9 @@ get '/questions/new' do
 end
 
 post '/questions/new' do
-	if current_user
-		@question = current_user.questions.create(params[:question]);
+	if current_usertions.create(params[:question]);
 		if @question.save
+    @question = current_user.ques
 			redirect "/questions/#{@question.id}"
 		else
 			@errors = @question.errors.full_messages
