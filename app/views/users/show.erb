@@ -1,0 +1,31 @@
+<h1>Recent Activity</h1>
+
+<% @activities.each do |activity| %>
+  <li><%= erb :'users/_activity', locals: { activity: activity } %></li>
+<% end %>
+
+
+<h1>My Questions</h1>
+
+<% @questions.each do |question| %>
+
+  <li><a href="/questions/<%=question.id%>"><%= question.title %></a></li>
+
+<% end %>
+
+<h1>My Answers</h1>
+
+<% @answers.each do |answer| %>
+
+  <li>Answered "<%= answer.body %>" on <a href="/questions/<%=answer.question.id%>"><%= answer.question.title %></a></li>
+
+<% end %>
+
+<h1>My Comments</h1>
+
+
+<% @comments.each do |comment| %>
+
+  <li>Commented "<%= comment.body %>" on <a href="/questions/<%=comment.source_question.id%>"><%= comment.source_question.title %></a></li>
+
+<% end %>

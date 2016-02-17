@@ -6,4 +6,12 @@ class Comment < ActiveRecord::Base
 
   include Pointable
 
+  def source_question
+    if commentable.class.name == "Question"
+      commentable
+    else # must be an Answer
+      commentable.question
+    end
+  end
+
 end
