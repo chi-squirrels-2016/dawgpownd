@@ -1,14 +1,7 @@
 <h2>Ask a new question</h2>
 <h4>Before submitting your question, make sure you've already searched Computer:WTF? for a similar query.</h4>
 <br>
-<% if @errors %>
-  <span>Something went wrong:</span>
-  <ul class="error-list pad-b-2">
-    <% @errors.each do |error| %>
-      <li class="error-item"><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= erb :'sessions/_errors' %>
 <div>
 	<form id="new-question" action='/questions/new' method='post' >
     <input type="text" placeholder="Title" name='question[title]'><br>
