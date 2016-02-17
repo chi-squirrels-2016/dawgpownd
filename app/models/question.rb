@@ -9,4 +9,9 @@ class Question < ActiveRecord::Base
   has_many :tags, through: :taggings
 
   include Pointable
+
+  def accepted_answer
+    self.accepted_answer.body
+  end
+
 end
