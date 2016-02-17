@@ -14,7 +14,6 @@ class Question < ActiveRecord::Base
 
 
   include Pointable
-
   def vote_count
     votes.length
   end
@@ -29,5 +28,10 @@ class Question < ActiveRecord::Base
 
   def date
     created_at.strftime("%m/%d/%Y")
+  end
+
+  def answers_by_vote
+    answers = self.answers
+    answers.sort! { |a,b| a.votes.length <=> b.votes.length }
   end
 end
