@@ -1,0 +1,10 @@
+<h2>Answer a question!</h2>
+<h4><%= @question.title %></h4>
+<br>
+<%= erb :'sessions/_errors' %>
+<div>
+  <form id="new-answer" action='/questions/<%= @question.id %>/answers/new' method='post' >
+    <input type="text" placeholder="Enter your answer here..." name='answer'><br>
+    <input type="submit" value="Submit Answer" class='button'>
+  </form>
+</div>
