@@ -19,7 +19,7 @@
       <li class="sitename">Computer:WTF?</li>
     <% if current_user %>
       <li class="rightside"><a href="/users/<%=current_user.id%>"><%=current_user.username%></a></li>
-      <li class="rightside">log out</li>
+      <li class="rightside"><a href="/logout">log out</a></li>
       <li class="rightside"><a href="/">home</a></li>
     <% else %>
       <li class="rightside"><a href="/login">login</a></li>
