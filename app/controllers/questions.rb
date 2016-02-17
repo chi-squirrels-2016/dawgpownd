@@ -6,13 +6,17 @@ get '/questions/new' do
 	erb :'questions/new'
 end
 
-post '/questions' do
-	session[:user_id] = 2
-	@question = current_user.questions.create(params[:question]);
-	p @question
-	if @question.save
-		redirect "/questions/#{@question.id}"
+post '/questions/new' do
+	if current_user
+		@question = current_user.questions.create(params[:question]);
+		if @question.save
+			redirect "/questions/#{@question.id}"
+		else
+			@errors = @question.errors.full_messages
+			erb :'/questions/new'
+		end
 	else
-		redirect '/questions/new'
+		@errors = ["You must be logged in to create an entry!!"]
+		erb :'/questions/new'
 	end
 end

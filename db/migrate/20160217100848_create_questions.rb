@@ -2,7 +2,7 @@ class CreateQuestions < ActiveRecord::Migration
   def change
     create_table :questions do |t|
       t.integer :user_id
-      t.string :title, presence: true
+      t.string :title, null: false
       t.string :body, null: false
       t.integer :accepted_answer_id
       t.integer :view_count
