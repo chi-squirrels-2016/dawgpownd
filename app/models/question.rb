@@ -30,8 +30,8 @@ class Question < ActiveRecord::Base
     created_at.strftime("%m/%d/%Y")
   end
 
-  def answers_by_vote
-    answers = self.answers
-    answers.sort! { |a,b| a.votes.length <=> b.votes.length }
-  end
+  # def answers_by_vote
+  #   answers = self.answers.to
+  #   answers.sort! { |a,b| a.votes.length <=> b.votes.length }
+  # end
 end

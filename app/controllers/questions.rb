@@ -24,8 +24,8 @@ end
 
 get '/questions/:id' do
   @question = Question.find(params[:id])
-  @answers = @question.answers_by_vote
-  @accepted_answer = Answer.find_by(id: @question.accepted_answer_id)
+  @answers = @question.answers.sort{ |a,b| a.votes.length <=> b.votes.length }
+  @accepted_answer = @question.accepted_answer
   erb :'questions/show'
 end
 
