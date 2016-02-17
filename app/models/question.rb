@@ -23,7 +23,7 @@ class Question < ActiveRecord::Base
   end
 
   def author
-    user.username
+    self.user.username
   end
 
   def date
