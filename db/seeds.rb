@@ -1,5 +1,5 @@
 User.create([
-  { username: "Dan", email:"dan@dan.dan", password_hash: BCrypt::Password.create("password")},
+  { username: "Dan", email:"dan@dan.dan", password:"password"},
   { username: "Ray", email:"Ray@Ray.Ray", password:"password"},
   { username: "Gino", email:"Gino@Gino.Gino", password: "password"},
   { username: "Marshall", email:"Marshall@Marshall.Marshall", password: "password"},
