@@ -8,7 +8,7 @@ get "/users/:id/?" do
     @comments = @user.comments
     @votes = @user.votes
     @activities = @user.activities
-    puts @activities
+    @activities_array = [@questions, @answers, @comments, @votes]
     erb :'users/show'
   else
     erb :'404'
