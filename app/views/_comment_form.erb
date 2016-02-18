@@ -1,0 +1,12 @@
+<%= erb :'sessions/_errors' %>
+
+<% if @question %>
+  <div id="question-form">
+    <form id="new-comment" id="new-comment" action='/questions/<%=@question.id%>/comments/new' method='post' >
+    <%=erb :'comments/_end_of_comment' %>
+</div>
+<% elsif @answer %>
+  <div id="question-form">
+    <form id="new-comment" action='/answers/<%=@answer.id%>/comments/new' method='post' >
+    <%=erb :'comments/_end_of_comment' %>
+<% end %>
