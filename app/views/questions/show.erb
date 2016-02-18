@@ -1,60 +1,66 @@
 <div class='question_container'>
   <article id="<%= @question.id %>">
     <a href='/questions/<%= @question.id %>/vote' class="fa fa-sort-desc vote-button"></a>
-    <h2><a href='/questions/<%= @question.id %>'><%= @question.title %></a></h2>
-  <div id="vote_question">
-    <div class="arrow-up"></div>
-    <div class="score"><%= @question.vote_count %></div>
-    <div class="arrow-down"></div>
-  </div>
-    <p>
-      <span class='question_body'><%= @question.body %></span>
-    </p>
-    <p>
-      Posted by: <a href='/users/<%= @question.user_id %>'> <%= @question.author %></a><br>
-      On: <%= @question.created_at %>
 
-    </p>
+    <h2 id="question-title">
+      <a id="title-link" href='/questions/<%= @question.id %>'><%= @question.title %></a>
+    </h2>
+
+  <div id="question-container">
+    <div id="vote_question">
+      <div class="arrow-up"></div>
+      <div class="score"><%= @question.vote_count %></div>
+      <div class="arrow-down"></div>
+    </div>
+  <div class="post-content">
+    <div class='question_body'>
+      <span><%= @question.body %></span><br>
+      <div class="author-content">
+      Asked: <%= @question.created_at.strftime("%m/%d/%Y") %><br>
+      Posted by: <a href='/users/<%= @question.user_id %>'> <%= @question.author %></a><br>
+    </div>
+
     <div class="comments-div">
-      <p>Question Comments:</p>
+
       <ul class="comments-list">
       <% @question.comments.each do |comment|%>
       <li>
         <span class='question_comments'><%= comment.body %></span>
-        Posted by: <a href='/users/<%= comment.user_id %>'> <%= comment.author %></a>
+        - <a href='/users/<%= comment.user_id %>'> <%= comment.author %></a>
       </li>
       <% end %>
       </ul>
+
         <a class="comment-form-link" href='/questions/<%= @question.id %>/comments/new'>add comment to question</a>
     </div>
-
-
-    <div class='post_answer'><a href='/questions/<%= @question.id %>/answers/new'>post answer</a></div>
-    <p>
+  <div class='answer-number'>
       <span class='answer_count'><%= @answers.length %> Answers </span>
-    </p>
+    </div>
+  </div>
+
+
     <div id="answers_container">
     <p>
       <% if @accepted_answer%>
-      Accepted Answer:<br>
       <span class='accepted_answer'><%= @accepted_answer.body %></span>
       <% end %>
     </p>
-      <p>Question Answers:</p>
       <% @question.answers.each do |answer|%>
+      <div id="question-container">
         <%= erb :'_answer', layout: false, locals: { answer: answer } %>
       <div class="comments-div">
         <ul class="comments-list">
         <% answer.comments.each do |comment|%>
           <li><span class='answer_comments'><%= comment.body %></span><br>
+
           Posted by: <a href='/users/<%= comment.user_id %>'> <%= comment.author %></a></li>
         <% end %>
       </ul>
-      <a class="comment-form-link"  href='/answers/<%= answer.id %>/comments/new'>add comment to answer</a><br>
+    <a class="comment-form-link" href='/answers/<%= answer.id %>/comments/new'>add comment to answer</a></div>
+      </div>
     </div>
       <% end %>
     </div>
-
-
+    <div class='post_answer'><a id="post-answer-button" href='/questions/<%= @question.id %>/answers/new'>post answer</a></div>
   </article>
 </div>

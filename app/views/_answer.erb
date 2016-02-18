@@ -3,4 +3,10 @@
 <div class="score"><%= answer.vote_count %></div>
 <div class="arrow-down"></div>
 </div>
-<span class='answer_body'><%= answer.body %></span><br><span class='answer_author'><%= answer.author %></span><br>
+<div class="answer-content">
+        <div class='answer_body'><%= answer.body %><br>
+        <div class="author-content">
+        Answered: <%= answer.created_at.strftime("%m/%d/%Y") %><br>
+        Posted by: <a href='/users/<%= answer.user_id %>'><%= answer.author %></a></div><br>
+
+      </div><br>
