@@ -66,7 +66,7 @@ $(document).ready(function(){
     });
   });
 
-  $('#vote_question').on('click', 'a', function(e) {
+  $('#vote_question, #vote_answer').on('click', 'a', function(e) {
     e.preventDefault();
     var link = $(this);
     var request = $.ajax({
@@ -74,19 +74,7 @@ $(document).ready(function(){
       url: $(this).attr('href')
     });
     request.done(function(data){
-      link.closest('#vote_question').find('.score').text(data);
-    });
-  });
-
-  $('#vote_answer').on('click', 'a', function(e) {
-    e.preventDefault();
-    var link = $(this);
-    var request = $.ajax({
-      type: "GET",
-      url: $(this).attr('href')
-    });
-    request.done(function(data){
-      link.closest('#vote_answer').find('.score').text(data);
+      link.closest('#vote_question, #vote_answer').find('.score').text(data);
     });
   });
 
