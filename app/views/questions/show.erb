@@ -13,6 +13,7 @@
     <p>
       Posted by: <a href='/user/<%= @question.user_id %>'> <%= @question.author %></a><br>
       On: <%= @question.created_at %>
+
     </p>
       <p>Question Comments:</p>
       <% @question.comments.each do |comment|%>
