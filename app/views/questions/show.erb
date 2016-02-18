@@ -2,31 +2,44 @@
   <article id="<%= @question.id %>">
     <a href='/questions/<%= @question.id %>/vote' class="fa fa-sort-desc vote-button"></a>
     <h2><a href='/questions/<%= @question.id %>'><%= @question.title %></a></h2>
-  <div id="answer_595" class="answer">
-    <a href=''>vote up img</a>
-    <div class="score">0</div>
-    <a href=''>vote down img</a>
+  <div id="vote">
+    <div class="arrow-up"></div>
+    <div class="score"><%= @question.vote_count %></div>
+    <div class="arrow-down"></div>
   </div>
     <p>
       <span class='question_body'><%= @question.body %></span>
     </p>
-    <p>
-      <span class='answer_count'><%= @answers.length %> Answer </span>
-    </p>
+      <% @question.comments.each do |comment|%>
+      <p>
+        <span class='question_comments'><%= comment.body %></span>
+      </p>
+      <% end %>
      <p>
         <a href='/questions/<%= @question.id %>/comments/new'>add comment</a>
     </p>
     <p>
+      <span class='answer_count'><%= @answers.length %> Answers </span>
+    </p>
+    <p>
       <% if @accepted_answer%>
-      <span class='accepted_answer'><%= @accepted_answer.body %></span>
+      <span class='accepted_answer'><%= "@accepted_answer" %></span>
       <% end %>
     </p>
+      <% @question.answers.each do |answer|%>
       <p>
-        <span class='question_answers'><%= @accepted_answer.body %></span>
+        <span class='answer_body'><%= answer.body %></span><br>
+        <a href='/answers/<%= answer.id %>/comments/new'>add comment</a><br>
+        <% answer.comments.each do |comment|%>
+          <span class='answer_comments'><%= comment.body %></span><br>
+        <% end %>
       </p>
+      <% end %>
     <p>
       Posted by: <a href='/user/<%= @question.user_id %>'> <%= @question.author %></a><br>
       On: <%= @question.created_at %>
     </p>
+    <div class='post_answer'><a href='/questions/<%= @question.id %>/answers/new'>post answer</a></div>
+
   </article>
 </div>
