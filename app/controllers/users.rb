@@ -15,17 +15,12 @@ get "/users/:id/activities/:size/?" do
 
   if @user = User.find_by_id(params[:id])
     if request.xhr?
-      case request["activityType"]
-      when "All"
+      if request["activityType"] == "All"
         @activities = @user.activities.sort{|a,b| b.created_at <=> a.created_at }
-      when "Question"
-        @activities = @user.questions.order(created_at: :asc)
-      when "Answer"
-        @activities = @user.answers.order(created_at: :asc)
-      when "Comment"
-        @activities = @user.comments.order(created_at: :asc)
-      when "Vote"
-        @activities = @user.votes.order(created_at: :asc)
+      else
+        # downcase and add trailing s
+        activity_name = request["activityType"].downcase + "s"
+        @activities = @user.send(activity_name).order(created_at: :asc)
       end
       erb :'users/_activities', layout: false, locals: { user_id: @user.id, show_size: @activities.length, activities: @activities }
     else
