@@ -14,13 +14,16 @@
       <span class='answer_count'><%= @answers.length %> Answer </span>
     </p>
      <p>
-        <a href='/comments/new'>add comment</a>
+        <a href='/questions/<%= @question.id %>/comments/new'>add comment</a>
     </p>
     <p>
       <% if @accepted_answer%>
-      <span class='question_answers'><%= @accepted_answer.body %></span>
+      <span class='accepted_answer'><%= @accepted_answer.body %></span>
       <% end %>
     </p>
+      <p>
+        <span class='question_answers'><%= @accepted_answer.body %></span>
+      </p>
     <p>
       Posted by: <a href='/user/<%= @question.user_id %>'> <%= @question.author %></a><br>
       On: <%= @question.created_at %>
