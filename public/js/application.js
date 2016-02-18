@@ -69,6 +69,25 @@ $(document).ready(function(){
 
   // vote arrows
 
+  // activities - show more
+  $(".show-all").on('click', function(e) {
+    e.preventDefault();
+    var content = $(this).closest(".user-content");
+    var activityType = content.attr('id');
+    var count = $(this).closest(".user-content").find("li").length
+    if (activityType == "") {
+      activityType = "All"
+    }
+    var request = $.ajax({
+      type: "GET",
+      url: $(this).attr('href'),
+      data: { activityType: activityType }
+    });
+    request.done(function(data) {
+      content.html(data);
+    });
+
+  })
 
 
 
