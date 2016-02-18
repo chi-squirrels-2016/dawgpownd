@@ -74,10 +74,6 @@ $(document).ready(function(){
     e.preventDefault();
     var content = $(this).closest(".user-content");
     var activityType = content.attr('id');
-    var count = $(this).closest(".user-content").find("li").length
-    if (activityType == "") {
-      activityType = "All"
-    }
     var request = $.ajax({
       type: "GET",
       url: $(this).attr('href'),

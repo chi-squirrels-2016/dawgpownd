@@ -1,8 +1,10 @@
 get "/users/:id/?" do
 
   if @user = User.find_by_id(params[:id])
-    @activities = @user.activities.sort{ |a,b| b.created_at <=> a.created_at }
-    @activities_array = [@user.questions.order(created_at: :asc), @user.answers.order(created_at: :asc), @user.comments.order(created_at: :asc), @user.votes.order(created_at: :asc)]
+    activity_types = ["activities","questions","answers","comments", "votes"]
+    @activities = activity_types.map do |activity_type|
+      @user.send(activity_type).sort{|a,b| b.created_at <=> a.created_at}
+    end
     @show_size = 5
     erb :'users/show'
   else
@@ -15,12 +17,12 @@ get "/users/:id/activities/:size/?" do
 
   if @user = User.find_by_id(params[:id])
     if request.xhr?
-      if request["activityType"] == "All"
+      if request["activityType"] == "All Activity"
         @activities = @user.activities.sort{|a,b| b.created_at <=> a.created_at }
       else
         # downcase and add trailing s
-        activity_name = request["activityType"].downcase + "s"
-        @activities = @user.send(activity_name).order(created_at: :asc)
+        activity_name = request["activityType"].downcase
+        @activities = @user.send(activity_name).order(created_at: :desc)
       end
       erb :'users/_activities', layout: false, locals: { user_id: @user.id, show_size: @activities.length, activities: @activities }
     else

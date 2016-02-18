@@ -1,21 +1,17 @@
 <div class="homepage">
 
-  <% unless @activities %>
-    <h2>No recent activity</h2>
-  <% else %>
-    <h1 class="header"><%= "All activity" %></h1>
-    <div class="activities-log user-content" id="All">
-      <%= erb :'users/_activities', layout: false, locals: { user_id: @user.id , activities: @activities, show_size: @show_size } %>
-    </div>
-
-    <% @activities_array.each do |single_activity| %>
-      <% unless single_activity.empty? %>
-      <h1 class="header"><%= single_activity.first.class.name + "s" %></h1>
-      <div class="user-content" id="<%=single_activity.first.class.name%>">
-      <%= erb :'users/_activities', layout: false, locals: { user_id: @user.id , activities: single_activity, show_size: @show_size } %>
-      </div>
+    <% @activities.each_with_index do |activity, index| %>
+      <% unless activity.empty? %>
+        <% if index == 0 %>
+          <% name = "All Activity" %>
+        <% else %>
+          <% name = activity.first.class.name + "s" %>
+        <% end %>
+        <h1 class="header"><%= name %></h1>
+        <div class="user-content" id="<%= name %>">
+        <%= erb :'users/_activities', layout: false, locals: { user_id: @user.id , activities: activity, show_size: @show_size } %>
+        </div>
       <% end %>
     <% end %>
-  <% end %>
 
 </div>
