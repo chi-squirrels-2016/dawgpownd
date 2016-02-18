@@ -9,7 +9,7 @@ get '/questions/popular' do
 end
 
 get '/questions/votes' do
-	@questions = Question.all.sort {|a, b| b.vote_count <=> a.vote_count }
+	@questions = Question.all.sort {|a, b| b.points <=> a.points }
 	erb :index
 end
 

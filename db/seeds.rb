@@ -17,7 +17,7 @@ users = 50.times.map do
 end
 
 questions = 100.times.map do
-  Question.create(user_id: users.sample.id, title: "#{Faker::Hacker.say_something_smart}?", body: Faker::Lorem.paragraph, view_count: rand(1..50))
+  Question.create(user_id: users.sample.id, title: "#{Faker::Hacker.say_something_smart}???", body: Faker::Lorem.paragraph, view_count: rand(1..50))
 end
 
 answers = 300.times.map do
