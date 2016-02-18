@@ -66,9 +66,29 @@ $(document).ready(function(){
     });
   });
 
+  $('#vote_question').on('click', 'a', function(e) {
+    e.preventDefault();
+    var link = $(this);
+    var request = $.ajax({
+      type: "GET",
+      url: $(this).attr('href')
+    });
+    request.done(function(data){
+      link.closest('#vote_question').find('.score').text(data);
+    });
+  });
 
-  // vote arrows
-
+  $('#vote_answer').on('click', 'a', function(e) {
+    e.preventDefault();
+    var link = $(this);
+    var request = $.ajax({
+      type: "GET",
+      url: $(this).attr('href')
+    });
+    request.done(function(data){
+      link.closest('#vote_answer').find('.score').text(data);
+    });
+  });
 
 
 
