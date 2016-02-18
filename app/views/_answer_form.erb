@@ -1,0 +1,6 @@
+<div id="question-form">
+  <form id="new-answer" action='/questions/<%= @question.id %>/answers/new' method='post' >
+    <input id="comment-text" type="text" placeholder="Enter your answer here..." name='body'><br>
+    <input class="comment-submit" type="submit" value="Submit Answer" class='button'>
+  </form>
+</div>
