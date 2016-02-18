@@ -1,53 +1,52 @@
+require 'faker'
+
+User.delete_all
+Question.delete_all
+Answer.delete_all
+Comment.delete_all
+
 User.create([
   { username: "Dan", email:"dan@dan.dan", password:"password"},
   { username: "Ray", email:"Ray@Ray.Ray", password:"password"},
   { username: "Gino", email:"Gino@Gino.Gino", password: "password"},
   { username: "Marshall", email:"Marshall@Marshall.Marshall", password: "password"},
-
   ])
 
-Question.create([
+users = 50.times.map do
+  User.create(username: Faker::Internet.user_name, email: Faker::Internet.safe_email, password: "password")
+end
 
-  { user_id: 1,
-    title: "What is Ruby?",
-    body: "Please tell me about this",
-    },
+questions = 100.times.map do
+  Question.create(user_id: users.sample.id, title: Faker::Lorem.sentence, body: Faker::Lorem.paragraph, view_count: rand(1..50))
+end
 
-  { user_id: 2,
-    title: "What is Rails?",
-    body: "Please tell me about this",
-    },
+answers = 300.times.map do
+  Answer.create(user_id: users.sample.id, question_id: questions.sample.id, body: Faker::Hacker.say_something_smart)
+end
 
-  { user_id: 3,
-    title: "This certificate has an invalid issuer Apple Push Services",
-    body: "I have created certificate to enable Push Services in my app, but every time I try to add certificate in my Keychain, after adding certificate it shows me following error:This certificate has an invalid issuer",
-    },
+comments = 500.times.map do
+  Comment.create(user_id: users.sample.id, commentable_id: questions.sample.id, commentable_type: "Question", body: Faker::Hacker.say_something_smart)
+end
 
-  { user_id: 4,
-    title: "What is Python?",
-    body: "Please tell me about this",
-    },
-  ])
+commentsplus = 500.times.map do
+  Comment.create(user_id: users.sample.id, commentable_id: answers.sample.id, commentable_type: "Answer", body: Faker::Hacker.say_something_smart)
+end
 
-Answer.create([
+votes = 500.times.map do
+  Vote.create(user_id: users.sample.id, value: 1, voteable_id: questions.sample.id, voteable_type: "Question")
+end
 
-  { user_id: 1,
-    question_id: 2,
-    body: "Try stack overflow.",
-    },
+votesplus = 500.times.map do
+  Vote.create(user_id: users.sample.id, value: 1, voteable_id: answers.sample.id, voteable_type: "Answer")
+end
 
-  { user_id: 2,
-    question_id: 3,
-    body: "Try stack overflow.",
-    },
+votescomms = 500.times.map do
+  Vote.create(user_id: users.sample.id, value: 1, voteable_id: comments.sample.id, voteable_type: "Comment")
+end
 
-  { user_id: 3,
-    question_id: 4,
-    body: "Try stack overflow.",
-    },
-
-  { user_id: 4,
-    question_id: 1,
-    body: "Try stack overflow.",
-    },
-  ])
+questions.each do |question|
+  if rand(1..10) > 5
+    question.accepted_answer = question.answers.sample
+    question.save
+  end
+end
