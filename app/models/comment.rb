@@ -16,4 +16,8 @@ class Comment < ActiveRecord::Base
     end
   end
 
+  def author
+    user.username
+  end
+
 end
