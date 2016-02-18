@@ -15,7 +15,7 @@ class Question < ActiveRecord::Base
 
   include Pointable
   def vote_count
-    votes.length
+    sum
   end
 
   def answer_count

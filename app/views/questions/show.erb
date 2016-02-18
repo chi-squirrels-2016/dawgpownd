@@ -8,9 +8,9 @@
 
   <div id="question-container">
     <div id="vote_question">
-      <div class="arrow-up"></div>
-      <div class="score"><%= @question.vote_count %></div>
-      <div class="arrow-down"></div>
+      <a href='/questions/<%= @question.id %>/vote_up'><div class="arrow-up"></div></a>
+      <div class="score"><%= @question.points %></div>
+      <a href='/questions/<%= @question.id %>/vote_down'><div class="arrow-down"></div></a>
     </div>
   <div class="post-content">
     <div class='question_body'>
@@ -18,6 +18,7 @@
       <div class="author-content">
       Asked: <%= @question.created_at.strftime("%m/%d/%Y") %><br>
       Posted by: <a href='/users/<%= @question.user_id %>'> <%= @question.author %></a><br>
+    </div>
     </div>
 
     <div class="comments-div">
@@ -33,6 +34,7 @@
 
         <a class="comment-form-link" href='/questions/<%= @question.id %>/comments/new'>add comment to question</a>
     </div>
+    </div>
   <div class='answer-number'>
       <span class='answer_count'><%= @answers.length %> Answers </span>
     </div>
@@ -40,11 +42,24 @@
 
 
     <div id="answers_container">
-    <p>
+    <div id='question-container'>
       <% if @accepted_answer%>
-      <span class='accepted_answer'><%= @accepted_answer.body %></span>
+      <img id='checkmark' src="http://www.clker.com/cliparts/9/I/e/1/i/B/dark-green-check-mark-th.png">
+      <div id="accepted_vote_answer">
+        <a href='/answers/<%= @accepted_answer.id %>/vote_up'><div class="arrow-up"></div></a>
+        <div class="score"><%= @accepted_answer.vote_count %></div>
+        <a href='/answers/<%= @accepted_answer.id %>/vote_down'><div class="arrow-down"></div></a>
+        </div>
+        <div id="accepted-answer-content">
+        <div class='answer_body'><%= @accepted_answer.body %><br>
+        <div class="author-content">
+        Answered: <%= @accepted_answer.created_at.strftime("%m/%d/%Y") %><br>
+        Posted by: <a href='/users/<%= @accepted_answer.user_id %>'><%= @accepted_answer.author %></a></div><br>
+
+      </div><br>
       <% end %>
-    </p>
+    </div>
+    </div>
       <% @question.answers.each do |answer|%>
       <div id="question-container">
         <%= erb :'_answer', layout: false, locals: { answer: answer } %>
