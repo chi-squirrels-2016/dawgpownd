@@ -17,8 +17,10 @@ header {
 #nav-bar {
   list-style-type: none;
   margin-left: 0px;
-  padding-top: 20px;
-  padding-bottom: 20px
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 0;
+
 }
 
 #nav-bar li {
@@ -31,10 +33,23 @@ header {
   text-decoration: none;
 }
 
+.site-icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.helper {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .sitename {
   color: white;
-  font-size: 24px
+  font-size: 24px;
+  display: inline;
+  text-decoration: none;
 }
+
 
 .rightside {
   float:right;
