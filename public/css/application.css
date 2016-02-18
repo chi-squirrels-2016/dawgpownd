@@ -310,6 +310,7 @@ position: relative;
   padding: 1%;
   border-bottom: 1px solid #E8E8E8;
   width: 97%;
+  padding-bottom: .5em;
 }
 
 #vote_question, #vote_answer {
@@ -325,7 +326,7 @@ position: relative;
 }
 
 .score {
-  margin-left: 25%;
+  padding-left: 15px;
 }
 
 .author-content {
@@ -334,6 +335,7 @@ position: relative;
   margin-left: 75%;
   width: 16%;
   padding: 1em;
+  margin-top:1em;
 }
 
 .comments-list {
@@ -378,9 +380,9 @@ position: relative;
   margin-left: 10%;
 }
 
-#answers_container {
+/*.question_container {
   padding-bottom: 1em;
-}
+}*/
 
 #checkmark {
   float:left;
@@ -399,5 +401,9 @@ position: relative;
 #accepted-answer-content {
   width: 87%;
   display:inline-block;
+}
+
+.post_answer {
+  padding-top: 1em;
 }
 

@@ -13,16 +13,24 @@ post '/questions/:question_id/answers/new' do
     @answer = @question.answers.create(user_id: current_user.id, body: params[:body])
       if @answer.save
         if request.xhr?
-          erb :_answer, layout: false, locals: {answer: @answer}
+          erb :_new_answer, layout: false, locals: {answer: @answer}
         else
           redirect "/questions/#{@question.id}"
         end
       else
         @errors = @answer.errors.full_messages
-        erb :'answers/new'
+        if request.xhr?
+          erb :'sessions/_errors', layout: false
+        else
+          erb :'answers/new'
+        end
       end
   else
     @errors = ['You need to be logged in to answer a question!']
-    erb :'answers/new'
+    if request.xhr?
+      erb :'sessions/_errors', layout: false
+    else
+      erb :'answers/new'
+    end
   end
 end

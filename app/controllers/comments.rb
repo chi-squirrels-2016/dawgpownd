@@ -20,7 +20,7 @@ post '/questions/:question_id/comments/new' do
     else
       @errors = @comment.errors.full_messages
       if request.xhr?
-        erb :'users/_errors', layout: false
+        erb :'sessions/_errors', layout: false
       else
         erb :'comments/new'
       end
@@ -28,7 +28,7 @@ post '/questions/:question_id/comments/new' do
   else
     @errors = ['You must be logged in to post a comment!!']
     if request.xhr?
-      erb :'users/_errors', layout: false
+      erb :'sessions/_errors', layout: false
     else
       erb :'comments/new'
     end
@@ -57,7 +57,7 @@ post '/answers/:answer_id/comments/new' do
     else
       @errors = @comment.errors.full_messages
       if request.xhr?
-        erb :'users/_errors', layout: false
+        erb :'sessions/_errors', layout: false
       else
         erb :'comments/new'
       end
@@ -65,7 +65,7 @@ post '/answers/:answer_id/comments/new' do
   else
     @errors = ['You must be logged in to post a comment!!']
     if request.xhr?
-      erb :'users/_errors', layout: false
+      erb :'sessions/_errors', layout: false
     else
       erb :'comments/new'
     end

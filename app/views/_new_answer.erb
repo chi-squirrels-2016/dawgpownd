@@ -1,0 +1,13 @@
+<div id="question-container">
+        <%= erb :'_answer', layout: false, locals: { answer: answer } %>
+      <div class="comments-div">
+        <ul class="comments-list">
+        <% answer.comments.each do |comment|%>
+          <li><span class='answer_comments'><%= comment.body %></span><br>
+
+          Posted by: <a href='/users/<%= comment.user_id %>'> <%= comment.author %></a></li>
+        <% end %>
+      </ul>
+    <a class="comment-form-link" href='/answers/<%= answer.id %>/comments/new'>add comment to answer</a></div>
+      </div>
+    </div>
