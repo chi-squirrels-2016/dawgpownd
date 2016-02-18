@@ -8,4 +8,8 @@ class Answer < ActiveRecord::Base
   validates :body, presence: true
 
   include Pointable
+
+  def author
+    user.username
+  end
 end
