@@ -30,7 +30,7 @@ post '/answers/:answer_id/comments/new' do
   if current_user
     @comment = @answer.comments.create(user_id: current_user.id, body: params[:body], commentable_type: "Answer")
     if @comment.save
-      redirect "/answer/#{@answer.id}"
+      redirect "/questions/#{@answer.question.id}"
     else
       @errors = @comment.errors.full_messages
       erb :'comments/new'
