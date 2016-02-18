@@ -1,13 +1,12 @@
-<h2>Ask a new question</h2>
-<h4>Before submitting your question, make sure you've already searched Computer:WTF? for a similar query.</h4>
-<br>
+<h2 class="new-title">Ask a new question</h2>
+<h4 class="new-title">Before submitting your question, make sure you've already searched Computer:WTF? for a similar query.</h4>
 <%= erb :'sessions/_errors' %>
-<div>
+<div id="question-form">
 	<form id="new-question" action='/questions/new' method='post' >
-    <input type="text" placeholder="Title" name='question[title]'><br>
-    <input type="text" placeholder="Your question here..." name='question[body]'><br>
-    <input type="text" placeholder="tags" id="tags"><br>
-    <input type="submit" value="Submit Question" class='button'>
+    <input class="title" type="text" placeholder="Title" name='question[title]'><br>
+    <input class="body" type="text" placeholder="Your question here..." name='question[body]'><br>
+    <input type="submit" value="Submit Question" class='button submit'>
+    <input type="text" placeholder="tags" id="tags">
   </form>
 </div>
 
