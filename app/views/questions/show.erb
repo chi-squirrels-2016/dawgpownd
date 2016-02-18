@@ -11,22 +11,26 @@
       <span class='question_body'><%= @question.body %></span>
     </p>
     <p>
-      Posted by: <a href='/user/<%= @question.user_id %>'> <%= @question.author %></a><br>
+      Posted by: <a href='/users/<%= @question.user_id %>'> <%= @question.author %></a><br>
       On: <%= @question.created_at %>
 
     </p>
       <p>Question Comments:</p>
+      <ul class="comments-list">
       <% @question.comments.each do |comment|%>
-      <p>
+      <li>
         <span class='question_comments'><%= comment.body %></span>
-      </p>
+        Posted by: <a href='/users/<%= comment.user_id %>'> <%= comment.author %></a>
+      </li>
       <% end %>
+      </ul>
      <p>
-        <a href='/questions/<%= @question.id %>/comments/new'>add comment to question</a>
+        <a id="question-comment" href='/questions/<%= @question.id %>/comments/new'>add comment to question</a>
     </p>
     <p>
       <span class='answer_count'><%= @answers.length %> Answers </span>
     </p>
+    <div id="answers_container">
     <p>
       <% if @accepted_answer%>
       Accepted Answer:<br>
@@ -42,13 +46,17 @@
           <div class="arrow-down"></div>
           </div>
         <span class='answer_body'><%= answer.body %></span><br>
-        <a href='/answers/<%= answer.id %>/comments/new'>add comment to answer</a><br>
+        <span class='answer_author'>Posted by: <a href='/users/<%= answer.user_id %>'><%= answer.author %></a></span><br>
+        <a class="answer-comment" href='/answers/<%= answer.id %>/comments/new'>add comment to answer</a><br>
+        <ul class="comments-list">
         <% answer.comments.each do |comment|%>
-          <span class='answer_comments'><%= comment.body %></span><br>
-          Posted by: <a href='/user/<%= @question.user_id %>'> <%= answer.author %></a><br>
+          <li><span class='answer_comments'><%= comment.body %></span><br>
+          Posted by: <a href='/users/<%= comment.user_id %>'> <%= comment.author %></a></li>
         <% end %>
+      </ul>
       </p>
       <% end %>
+    </div>
     <div class='post_answer'><a href='/questions/<%= @question.id %>/answers/new'>post answer</a></div>
   </article>
 </div>

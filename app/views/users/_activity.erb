@@ -6,7 +6,7 @@
 <% when "Comment" %>
   <span>Commented <span class="content-body">"<%= activity.body %>"</span> on <a href="/questions/<%= activity.source_question.id %>"><%= activity.source_question.title %></a> on <%= activity.created_at.to_date %></span>
 <% when "Vote" %>
-  <span>Voted on a <%= activity.votable_type %> on <a href="/questions/<%= activity.source_question.id %>"><%= activity.source_question.title %></a> on <%= activity.created_at.to_date %></span>
+  <span>Voted on a <%= activity.voteable_type %> on <a href="/questions/<%= activity.source_question.id %>"><%= activity.source_question.title %></a> on <%= activity.created_at.to_date %></span>
 <% else %>
   <%= "Error." %>
 <% end %>
