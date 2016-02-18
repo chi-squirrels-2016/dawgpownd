@@ -66,9 +66,17 @@ $(document).ready(function(){
     });
   });
 
-
-  // vote arrows
-
+  $('#vote_question, #vote_answer').on('click', 'a', function(e) {
+    e.preventDefault();
+    var link = $(this);
+    var request = $.ajax({
+      type: "GET",
+      url: $(this).attr('href')
+    });
+    request.done(function(data){
+      link.closest('#vote_question, #vote_answer').find('.score').text(data);
+    });
+  });
 
 
 

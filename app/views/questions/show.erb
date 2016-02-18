@@ -8,9 +8,9 @@
 
   <div id="question-container">
     <div id="vote_question">
-      <div class="arrow-up"></div>
-      <div class="score"><%= @question.vote_count %></div>
-      <div class="arrow-down"></div>
+      <a href='/questions/<%= @question.id %>/vote_up'><div class="arrow-up"></div></a>
+      <div class="score"><%= @question.points %></div>
+      <a href='/questions/<%= @question.id %>/vote_down'><div class="arrow-down"></div></a>
     </div>
   <div class="post-content">
     <div class='question_body'>
