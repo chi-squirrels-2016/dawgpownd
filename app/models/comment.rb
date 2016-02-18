@@ -9,7 +9,7 @@ class Comment < ActiveRecord::Base
   include Pointable
 
   def source_question
-    if commentable.class.name == "Question"
+    if commentable_type == "Question"
       commentable
     else # must be an Answer
       commentable.question

@@ -4,7 +4,7 @@ class Vote < ActiveRecord::Base
   belongs_to :voteable, polymorphic: true
 
   def source_question
-    case votable.class.name
+    case votable_type
     when "Question"
       votable
     when "Answer"
