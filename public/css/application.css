@@ -208,7 +208,7 @@ position: relative;
   width: 40%;
   left: 30%;
 }
-.arrow-up {
+/*.arrow-up {
   width: 0;
   height: 0;
   border-left: 10px solid transparent;
@@ -224,4 +224,34 @@ position: relative;
   border-right: 10px solid transparent;
 
   border-top: 10px solid gray;
+}
+*/
+.arrow-up {
+  display: inline-block;
+  overflow: hidden;
+  width: 40px;
+  height: 25px;
+  cursor: pointer;
+  background: url('http://i.stack.imgur.com/iqN2k.png');
+  background-position: 0 -25px;
+}
+
+
+.arrow-up.on {
+  background-position: 0 9.5px;
+}
+
+.arrow-down {
+  display: inline-block;
+  overflow: hidden;
+  width: 40px;
+  height: 25px;
+  cursor: pointer;
+  background: url('http://i.imgur.com/rPy0INR.png');
+  background-position: -3px -5px;
+}
+
+
+.arrow-down.on {
+  background-position: -3px -40px;
 }

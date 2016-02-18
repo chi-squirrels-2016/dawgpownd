@@ -2,7 +2,7 @@
   <article id="<%= @question.id %>">
     <a href='/questions/<%= @question.id %>/vote' class="fa fa-sort-desc vote-button"></a>
     <h2><a href='/questions/<%= @question.id %>'><%= @question.title %></a></h2>
-  <div id="vote">
+  <div id="vote_question">
     <div class="arrow-up"></div>
     <div class="score"><%= @question.vote_count %></div>
     <div class="arrow-down"></div>
@@ -10,36 +10,45 @@
     <p>
       <span class='question_body'><%= @question.body %></span>
     </p>
+    <p>
+      Posted by: <a href='/user/<%= @question.user_id %>'> <%= @question.author %></a><br>
+      On: <%= @question.created_at %>
+
+    </p>
+      <p>Question Comments:</p>
       <% @question.comments.each do |comment|%>
       <p>
         <span class='question_comments'><%= comment.body %></span>
       </p>
       <% end %>
      <p>
-        <a href='/questions/<%= @question.id %>/comments/new'>add comment</a>
+        <a href='/questions/<%= @question.id %>/comments/new'>add comment to question</a>
     </p>
     <p>
       <span class='answer_count'><%= @answers.length %> Answers </span>
     </p>
     <p>
       <% if @accepted_answer%>
-      <span class='accepted_answer'><%= "@accepted_answer" %></span>
+      Accepted Answer:<br>
+      <span class='accepted_answer'><%= @accepted_answer.body %></span>
       <% end %>
     </p>
+      <p>Question Answers:</p>
       <% @question.answers.each do |answer|%>
       <p>
+          <div id="vote_answer">
+          <div class="arrow-up"></div>
+          <div class="score"><%= @question.vote_count %></div>
+          <div class="arrow-down"></div>
+          </div>
         <span class='answer_body'><%= answer.body %></span><br>
-        <a href='/answers/<%= answer.id %>/comments/new'>add comment</a><br>
+        <a href='/answers/<%= answer.id %>/comments/new'>add comment to answer</a><br>
         <% answer.comments.each do |comment|%>
           <span class='answer_comments'><%= comment.body %></span><br>
+          Posted by: <a href='/user/<%= @question.user_id %>'> <%= answer.author %></a><br>
         <% end %>
       </p>
       <% end %>
-    <p>
-      Posted by: <a href='/user/<%= @question.user_id %>'> <%= @question.author %></a><br>
-      On: <%= @question.created_at %>
-    </p>
     <div class='post_answer'><a href='/questions/<%= @question.id %>/answers/new'>post answer</a></div>
-
   </article>
 </div>
