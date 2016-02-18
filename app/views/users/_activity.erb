@@ -1,3 +1,4 @@
+<div class="activity" id="<%= activity.id %>">
 <% case activity.class.name %>
 <% when "Question" %>
   <span>Asked <a href="/questions/<%= activity.id%>"><%= activity.title %></a> on <%= activity.created_at.to_date %></span>
@@ -10,3 +11,4 @@
 <% else %>
   <%= "Error." %>
 <% end %>
+</div>

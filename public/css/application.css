@@ -234,11 +234,6 @@ position: relative;
   left: 30%;
 }
 
-.activities-log {
-  color: gray;
-  list-style: none;
-}
-
 .user-content {
   margin-top: 30px;
   border-top: 1px solid gray;

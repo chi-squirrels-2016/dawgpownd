@@ -67,6 +67,25 @@ $(document).ready(function(){
     });
   });
 
+
+
+  // activities - show more
+  $(".show-all").on('click', function(e) {
+    e.preventDefault();
+    var content = $(this).closest(".user-content");
+    var activityType = content.attr('id');
+    var request = $.ajax({
+      type: "GET",
+      url: $(this).attr('href'),
+      data: { activityType: activityType }
+    });
+    request.done(function(data) {
+      content.html(data);
+    });
+
+  })
+
+
   $('article').on('click', '.arrow-up, .arrow-down', function(e) {
     e.preventDefault();
     var link = $(this).closest('a');

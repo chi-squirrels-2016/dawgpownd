@@ -1,0 +1,8 @@
+<%# locals: user_id, activities, show_size %>
+
+<% activities.take(show_size).each do |activity| %>
+  <li><%= erb :'users/_activity', layout: false, locals: { activity: activity } %></li>
+<% end %>
+<% if activities.length > show_size %>
+  <a class="show-all" href="/users/<%= user_id %>/activities/<%= activities.length %>">Show all</a>
+<% end %>
