@@ -1,10 +1,9 @@
-<h2>Answer a question!</h2>
-<h4><%= @question.title %></h4>
-<br>
+<h2 class='new-title'>Answer a question!</h2>
+<h4 class='new-title'><%= @question.title %></h4>
 <%= erb :'sessions/_errors' %>
-<div>
+<div id="question-form">
   <form id="new-answer" action='/questions/<%= @question.id %>/answers/new' method='post' >
-    <input type="text" placeholder="Enter your answer here..." name='answer'><br>
-    <input type="submit" value="Submit Answer" class='button'>
+    <input id="comment-text" type="text" placeholder="Enter your answer here..." name='answer'><br>
+    <input class="comment-submit" type="submit" value="Submit Answer" class='button'>
   </form>
 </div>
