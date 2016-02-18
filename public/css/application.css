@@ -1,3 +1,13 @@
+* {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-kerning: auto;
+  font-stretch: normal;
+  font-style: normal;
+  font-variant: normal;
+  font-variant-ligatures: normal;
+  font-weight: normal;
+}
+
 header {
   background-color: #444;
 
@@ -7,8 +17,10 @@ header {
 #nav-bar {
   list-style-type: none;
   margin-left: 0px;
-  padding-top: 20px;
-  padding-bottom: 20px
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 0;
+
 }
 
 #nav-bar li {
@@ -21,10 +33,23 @@ header {
   text-decoration: none;
 }
 
+.site-icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.helper {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .sitename {
   color: white;
-  font-size: 24px
+  font-size: 24px;
+  display: inline;
+  text-decoration: none;
 }
+
 
 .rightside {
   float:right;
@@ -208,24 +233,27 @@ position: relative;
   width: 40%;
   left: 30%;
 }
-/*.arrow-up {
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
 
-  border-bottom: 10px solid gray;
+.activities-log {
+  color: gray;
+  list-style: none;
 }
 
-.arrow-down {
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-
-  border-top: 10px solid gray;
+.user-content {
+  margin-top: 30px;
+  border-top: 1px solid gray;
 }
-*/
+
+.user-content li {
+  list-style: none;
+  color: gray;
+}
+
+.content-body {
+  font-style: italic;
+  font-weight: bold;
+}
+
 .arrow-up {
   display: inline-block;
   overflow: hidden;

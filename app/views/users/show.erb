@@ -1,31 +1,65 @@
-<h1>Recent Activity</h1>
+<div class="homepage">
+  <h1 class="questions-header">All Activity</h1>
 
-<% @activities.each do |activity| %>
-  <li><%= erb :'users/_activity', locals: { activity: activity } %></li>
-<% end %>
+  <% unless @activities %>
+
+    <h2>No recent activity</h2>
+
+  <% else %>
+
+    <div class="activities-log"
+    <% @activities.each do |activity| %>
+      <li><%= erb :'users/_activity', layout: false, locals: { activity: activity } %></li>
+    <% end %>
+    </div>
+
+    <% unless @questions.empty? %>
+    <div class="user-content">
+      <h1 class="questions-header">Questions</h1>
+      <% @questions.each do |activity| %>
+        <li><%= erb :'users/_activity', layout: false, locals: { activity: activity } %></li>
+      <% end %>
+    </div>
+    <% end %>
 
 
-<h1>My Questions</h1>
 
-<% @questions.each do |question| %>
+    <% unless @answers.empty? %>
+    <div class="user-content">
+      <h1 class="questions-header">Answers</h1>
+      <% @answers.each do |activity| %>
+        <li><%= erb :'users/_activity', layout: false, locals: { activity: activity } %></li>
 
-  <li><a href="/questions/<%=question.id%>"><%= question.title %></a></li>
-
-<% end %>
-
-<h1>My Answers</h1>
-
-<% @answers.each do |answer| %>
-
-  <li>Answered "<%= answer.body %>" on <a href="/questions/<%=answer.question.id%>"><%= answer.question.title %></a></li>
-
-<% end %>
-
-<h1>My Comments</h1>
+      <% end %>
+    </div>
+    <% end %>
 
 
-<% @comments.each do |comment| %>
 
-  <li>Commented "<%= comment.body %>" on <a href="/questions/<%=comment.source_question.id%>"><%= comment.source_question.title %></a></li>
+    <% unless @comments.empty? %>
+    <div class="user-content">
+      <h1 class="questions-header">Comments</h1>
 
-<% end %>
+
+      <% @comments.each do |activity| %>
+        <li><%= erb :'users/_activity', layout: false, locals: { activity: activity } %></li>
+
+      <% end %>
+    </div>
+    <% end %>
+
+
+
+    <% unless @votes.empty? %>
+    <div class="user-content">
+      <h1 class="questions-header">Votes</h1>
+
+
+      <% @votes.each do |activity| %>
+        <li><%= erb :'users/_activity', layout: false, locals: { activity: activity } %></li>
+      <% end %>
+    </div>
+    <% end %>
+  <% end %>
+
+</div>
