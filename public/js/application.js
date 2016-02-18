@@ -25,8 +25,9 @@ $(document).ready(function(){
     });
     request.done(function(data) {
       // append answer to wherever
+      $('.errs').remove();
       $('#answers_container').append(data);
-      $("#question-form").hide();
+      $("article").find("#question-form").hide();
       $(".post_answer").find("a").show();
     });
   });
@@ -41,14 +42,15 @@ $(document).ready(function(){
       url: $(this).attr('href')
     });
     request.done(function(data) {
-      // append to whatever class the answers are in
+      $('.errs').remove();
+      $('article').find('#question-form').remove();
       comment_div.find('ul').after(data);
       link.hide();
     });
   });
 
 
-
+  // post a comment
   $('article').on('submit', "#new-comment", function(e) {
     e.preventDefault();
     var commentList = $(this).closest('.comments-div');
@@ -58,26 +60,23 @@ $(document).ready(function(){
       data: $(this).serialize()
     });
     request.done(function(data) {
-      // append answer to wherever
+      $('.errs').remove();
       commentList.find('ul').append(data);
-      console.log(commentList);
-      $("#question-form").hide();
+      $('article').find("#question-form").remove();
       commentList.find(".comment-form-link").show();
     });
   });
 
-  $('#vote_question, #vote_answer').on('click', 'a', function(e) {
+  $('article').on('click', '.arrow-up, .arrow-down', function(e) {
     e.preventDefault();
-    var link = $(this);
+    var link = $(this).closest('a');
     var request = $.ajax({
       type: "GET",
-      url: $(this).attr('href')
+      url: link.attr('href')
     });
     request.done(function(data){
-      link.closest('#vote_question, #vote_answer').find('.score').text(data);
+      link.closest('#vote_question, #vote_answer, #accepted_vote_answer').find('.score').text(data);
     });
   });
-
-
 
 });
