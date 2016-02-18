@@ -12,4 +12,8 @@ class Answer < ActiveRecord::Base
   def author
     user.username
   end
+
+  def vote_count
+    votes.length
+  end
 end
