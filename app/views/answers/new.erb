@@ -1,6 +1,6 @@
 <h2 class='new-title'>Answer a question!</h2>
 <h4 class='new-title'><%= @question.title %></h4>
-<%= erb :'sessions/_errors' %>
+<%= erb :'sessions/_errors', layout: false %>
 <div id="question-form">
   <form id="new-answer" action='/questions/<%= @question.id %>/answers/new' method='post' >
     <input id="comment-text" type="text" placeholder="Enter your answer here..." name='body'><br>
