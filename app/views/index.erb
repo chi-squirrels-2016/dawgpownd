@@ -1,4 +1,6 @@
+<div class="background">
 <div class="homepage">
+  <!-- <img class="back" src="http://i.imgur.com/81adu2p.jpg"/> -->
   <ul id="question-tabs">
     <li class="questions-header">Questions</li>
     <li class="sort"><a href="/questions">newest</a></li>
@@ -15,9 +17,10 @@
           <td class="post-stats"><%=question.points%><br>votes</td>
           <td class="post-stats"><%=question.answer_count%><br>answers</td>
           <td class="post-stats"><%=question.view_count%><br>views</td>
-          <td class="post-info"><a class="post-link" href="/questions/<%=question.id%>"><%=question.title%></a><br><span class="tags">tag1</span><span class="author"><%=question.author%></span><span class="date">created <%=question.date%></td>
+          <td class="post-info"><a class="post-link" href="/questions/<%=question.id%>"><%=question.title%></a><br><span ><a class="author" href="/users/<%=question.user_id %>"><%=question.author%></a></span><span class="date">created <%=question.date%></td>
         </tr>
       <% end %>
     </table>
   </section>
+</div>
 </div>

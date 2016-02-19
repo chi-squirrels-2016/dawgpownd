@@ -111,7 +111,9 @@ header {
   text-decoration: none;
 
 }
-
+/*.background {
+  background-image: url("http://i.imgur.com/81adu2p.jpg");
+}*/
 .posts {
   width: 100%;
 }
@@ -149,6 +151,7 @@ h4 {
 .author {
   margin: 5px;
   background-color: #9fbbd6;
+  text-decoration: none;
 }
 
 .date {
